@@ -1,0 +1,5 @@
+{
+  "name": "Zephyrus AI",
+  "description": "An AI-powered interactive coding mentor that generates custom courses, lessons, and a live coding environment based on your goals.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zephyrus AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              primary: {
+                50: 'rgb(var(--primary-50) / <alpha-value>)',
+                100: 'rgb(var(--primary-100) / <alpha-value>)',
+                200: 'rgb(var(--primary-200) / <alpha-value>)',
+                300: 'rgb(var(--primary-300) / <alpha-value>)',
+                400: 'rgb(var(--primary-400) / <alpha-value>)',
+                500: 'rgb(var(--primary-500) / <alpha-value>)',
+                600: 'rgb(var(--primary-600) / <alpha-value>)',
+                700: 'rgb(var(--primary-700) / <alpha-value>)',
+                800: 'rgb(var(--primary-800) / <alpha-value>)',
+                900: 'rgb(var(--primary-900) / <alpha-value>)',
+              },
+              secondary: {
+                500: '#10b981', // Emerald for success/progress
+                600: '#059669',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Default Theme (Zephyr/Indigo) */
+        --primary-50: 238 242 255;
+        --primary-100: 224 231 255;
+        --primary-200: 199 210 254;
+        --primary-300: 165 180 252;
+        --primary-400: 129 140 248;
+        --primary-500: 99 102 241;
+        --primary-600: 79 70 229;
+        --primary-700: 67 56 202;
+        --primary-800: 55 48 163;
+        --primary-900: 49 46 129;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom scrollbar for code editor */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #1e1e2e; 
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4b5563; 
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #6b7280; 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.86.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "url": "https://aistudiocdn.com/url@^0.11.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 h-screen overflow-hidden">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="./index.tsx"></script>
+    <script>
+      // Error Boundary Script for White Screen Debugging on Deployment
+      window.addEventListener('error', function(event) {
+        const root = document.getElementById('root');
+        if (root && (!root.innerHTML || root.innerHTML === '')) {
+           // Only show error if React failed to mount anything
+           root.innerHTML = `
+             <div style="padding: 2rem; font-family: sans-serif; color: #ef4444; background: #fff1f2; height: 100vh;">
+               <h2 style="font-weight: bold; margin-bottom: 1rem;">Startup Error</h2>
+               <p style="margin-bottom: 0.5rem;">The application failed to start.</p>
+               <pre style="background: #1e1e1e; color: #e5e5e5; padding: 1rem; border-radius: 0.5rem; overflow: auto; margin-top: 1rem;">${event.message}</pre>
+             </div>
+           `;
+        }
+      });
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
